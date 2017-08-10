@@ -1,0 +1,26 @@
+From 4432acff4591c9489ca770acf1282ab57c5edd80 Mon Sep 17 00:00:00 2001
+From: Nils Olof Paulsson <nilpa76@liu.se>
+Date: Fri, 4 Aug 2017 11:40:42 +0200
+Subject: [PATCH] ifchange_no_color
+
+---
+ tool/ifchange | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tool/ifchange b/tool/ifchange
+index 8571cf8..0999128 100755
+--- a/tool/ifchange
++++ b/tool/ifchange
+@@ -7,7 +7,7 @@ set -e
+ timestamp=
+ keepsuffix=
+ empty=
+-color=auto
++color=no
+ until [ $# -eq 0 ]; do
+     case "$1" in
+        --timestamp)
+-- 
+2.3.1
+
+

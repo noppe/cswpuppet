@@ -1,0 +1,3 @@
+
+all:
+	for f in 

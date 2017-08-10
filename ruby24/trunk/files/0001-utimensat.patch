@@ -1,0 +1,26 @@
+From ff27e78be2296205ca0bca2c11bd19a36f046b2b Mon Sep 17 00:00:00 2001
+From: Nils Olof Paulsson <nilpa76@liu.se>
+Date: Thu, 3 Aug 2017 15:09:08 +0200
+Subject: [PATCH] utimensat
+
+---
+ file.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/file.c b/file.c
+index 0623e6a..9a27336 100644
+--- a/file.c
++++ b/file.c
+@@ -2574,7 +2574,7 @@ utime_internal(const char *path, VALUE pathv, void *arg)
+     struct timeval tvbuf[2], *tvp = NULL;
+ 
+ #if defined(HAVE_UTIMENSAT)
+-    static int try_utimensat = 1;
++    static int try_utimensat = 0;
+ 
+     if (try_utimensat) {
+         if (utimensat(AT_FDCWD, path, tsp, 0) < 0) {
+-- 
+2.3.1
+
+

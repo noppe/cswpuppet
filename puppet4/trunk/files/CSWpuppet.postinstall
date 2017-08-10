@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# $Id: CSWpuppet.postinstall 14590 2011-05-17 15:47:19Z phipsy $
+#
+
+PKG_INSTALL_ROOT=${PKG_INSTALL_ROOT:-/}
+
+# Migration of the configuration files?
+# This is horrible. Puppet insists on it's directories and will FORCE them to
+# _be_ directories. Therefore, to fit in with the CSW layout the only vaguely
+# sensible thing to do is to symlink TO the CSW layout and not FROM it.
+if [ ! -d $PKG_INSTALL_ROOT/opt/csw/etc/puppet ]; then
+    /usr/sbin/chroot $PKG_INSTALL_ROOT /usr/bin/ln -s /etc/opt/csw/puppet /opt/c
+sw/etc/puppet
+fi
+
+if [ ! -d $PKG_INSTALL_ROOT/var/lib ]; then
+    /usr/sbin/chroot $PKG_INSTALL_ROOT /usr/bin/mkdir -p /var/lib/puppet
+    /usr/sbin/chroot $PKG_INSTALL_ROOT /usr/bin/chown puppet /var/lib/puppet
+    if [ ! -d $PKG_INSTALL_ROOT/var/opt/csw/puppet ]; then
+        /usr/sbin/chroot $PKG_INSTALL_ROOT /usr/bin/ln -s /var/lib/puppet /var/o
+pt/csw/puppet
+    fi
+fi
+
+if [ ! -d $PKG_INSTALL_ROOT/opt/csw/var/puppet -o ! -L $PKG_INSTALL_ROOT/opt/csw
+/var/puppet ]; then 
+    /usr/sbin/chroot $PKG_INSTALL_ROOT /usr/bin/ln -s /var/lib/puppet /opt/csw/v
+ar/puppet
+fi
+
+# Replaced with INITSMF
+
+exit 0
+
