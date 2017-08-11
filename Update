@@ -8,6 +8,6 @@ done
 
 for f in puppet4 ruby24 mcollective  ; do
   test -d $f/trunk/files || mkdir -p $f/trunk/files
-  rsync -v $HOME/opencsw/$f/trunk/files/ $f/trunk/files/
+  rsync -av $HOME/opencsw/$f/trunk/files/ $f/trunk/files/
 done
 

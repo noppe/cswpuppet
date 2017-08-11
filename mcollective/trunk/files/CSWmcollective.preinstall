@@ -1,0 +1,7 @@
+#!/bin/sh
+
+PATH=/opt/csw/bin:$PATH
+
+gem list -i '^stomp$' || gem install stomp
+
+
