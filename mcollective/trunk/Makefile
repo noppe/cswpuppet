@@ -71,7 +71,7 @@ install-mcollective:
 	ginstall -m 755 $(FILEDIR)/mcollective $(DESTDIR)$(sysconfdir)/init.d
 	ginstall -m 755 -d $(DESTDIR)$(plplugdir)
 	ginstall -m 755 -d $(DESTDIR)$(plconfdir)
-	cd $(WORKSRC)/.. && mv marionette-collective-$(VERSION)/* mcollective-$(VERSION)
+	# cd $(WORKSRC)/.. && mv marionette-collective-$(VERSION)/* mcollective-$(VERSION)
 	cd $(WORKSRC) && ruby install.rb \
 		--destdir=$(DESTDIR) \
 		--configdir=$(plconfdir) \

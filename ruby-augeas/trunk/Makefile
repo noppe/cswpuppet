@@ -31,8 +31,8 @@ CONFIGURE_SCRIPTS =
 TEST_SCRIPTS      = 
 INSTALL_SCRIPTS   = ruby-augeas
 
-sitelibdir = $(shell ruby -rrbconfig -e "puts Config::CONFIG['sitelibdir']")
-sitearchdir = $(shell ruby -rrbconfig -e "puts Config::CONFIG['sitearchdir']")
+sitelibdir = $(shell ruby -rrbconfig -e "puts RbConfig::CONFIG['sitelibdir']")
+sitearchdir = $(shell ruby -rrbconfig -e "puts RbConfig::CONFIG['sitearchdir']")
 
 include gar/category.mk
 

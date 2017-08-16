@@ -1,0 +1,12 @@
+#!/bin/sh
+
+for f in augeas facter2 openssl1 puppet4 ruby-augeas \
+         ruby24 hiera mcollective  ; do
+  test -d $HOME/opencsw/$f || mgar newpkg $f
+  rsync -v $f/trunk/Makefile $HOME/opencsw/$f/trunk/Makefile
+done
+
+for f in puppet4 ruby24 mcollective  ; do
+  rsync -av $f/trunk/files/ $HOME/opencsw/$f/trunk/files/
+done
+

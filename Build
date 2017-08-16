@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for f in openssl1 augeas ruby24 ruby-augeas \
+	 facter2 hiera puppet4 mcollective  ; do
+  cd $HOME/opencsw/$f/trunk && mgar package
+done
+
